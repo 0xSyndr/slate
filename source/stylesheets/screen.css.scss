@@ -57,7 +57,7 @@ html, body {
   top: 0;
   left: 0;
   bottom: 0;
-  width: $nav-width;
+  width: 300px;
   background-color: $nav-bg;
   font-size: 13px;
   font-weight: bold;
@@ -209,6 +209,14 @@ html, body {
   transition-duration: 130ms;
 }
 
+.toc-h1.toc-link[data-title="Welcome"], .toc-h1.toc-link[data-title="Methods"] {
+  text-transform: uppercase;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid $nav-footer-border-color;
+  font-weight: bold;
+}
+
 // button to show navigation on mobile devices
 #nav-button {
   span {
@@ -248,7 +256,7 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 
 .page-wrapper {
-  margin-left: $nav-width;
+  margin-left: 300px;
   position: relative;
   z-index: 10;
   background-color: $main-bg;
@@ -347,7 +355,7 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 22px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
@@ -364,7 +372,7 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 19px;
+    font-size: 18px;
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
@@ -382,7 +390,7 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 13px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
@@ -413,10 +421,12 @@ html, body {
       padding: 5px 10px;
       border-bottom: 1px solid #ccc;
       vertical-align: bottom;
+      font-size: 15px
     }
 
     td {
       padding: 10px;
+      font-size: 12px
     }
 
     tr:last-child {
@@ -424,11 +434,11 @@ html, body {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: lighten($main-bg,2.4%);
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: darken($main-bg,2.4%);
     }
   }
 
@@ -443,6 +453,7 @@ html, body {
   p, li, dt, dd {
     line-height: 1.6;
     margin-top: 0;
+    font-size: 14px
   }
 
   img {

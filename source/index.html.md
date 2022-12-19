@@ -2,17 +2,27 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
   - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
+  - welcome
+  - methods
+  - authMethods
+  - seshManagementMethods
+  - supportingMethods
+  - webhookMethods
+  - marketMethods
+  - tradingMethods
+  - comboMethods
+  - blockMethods
+  - walletMethods
+  - accountMethods
+
+  - subscription
 
 search: true
 
@@ -23,7 +33,7 @@ meta:
     content: Documentation for the Kittn API
 ---
 
-# Introduction
+<!-- # Introduction
 
 Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
@@ -242,4 +252,4 @@ This endpoint deletes a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
-
+ -->
