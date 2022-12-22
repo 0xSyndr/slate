@@ -20,19 +20,23 @@ Happy Trading!
 
 Syndr's allowed currencies use the following system of naming:
 
+/public/get_currencies method can be used to get all currencies.
+
+
 Examples  | Comments|
 --------- | --------|
 BTC | Symbol of the ERC20 token
 
-Currently there are four accepted currencies. BTC,ETH,USDC,USDT
 
-/public/get_currencies method can be used to get all currencies.
 
 <br>
 
 ### Instruments
 
 Syndr's tradeable assets or instruments use the following system of naming:
+
+/public/get_instruments method can be used to get all instruments.
+
 
 |Kind | Examples | Template | Comments|
 |---- | -------- | -------- | --------|
@@ -41,7 +45,6 @@ Syndr's tradeable assets or instruments use the following system of naming:
 |Option| 	`BTC-25MAR16-420-C`, `BTC-5AUG16-580-P` | BTC-DMMMYY-STRIKE-K | STRIKE is option strike price in USD. Template K is option kind: C for call options or P for put options.|
 
 
-/public/get_instruments method can be used to get all instruments.
 
 <br>
 
@@ -49,12 +52,13 @@ Syndr's tradeable assets or instruments use the following system of naming:
 
 Syndr's instrument index use the following system of naming:
 
+/public/get_index_price_names method can be used to get all index names.
+
+
 |Kind | Examples|
 |---- | -------- |
 |Future | BTC/USDT |  
 
-
-/public/get_index_price_names method can be used to get all index names.
 
 
 
@@ -80,7 +84,7 @@ According to the JSON-RPC sepcification the requests must be JSON objects with t
     "id": 8066,
     "method": "public/ticker",
     "params": {
-        "instrument": "BTC-24AUG18-6500-P"
+        // paramaters for the request message
     }
 }
 ```
@@ -98,62 +102,35 @@ params | object | 	The parameters values for the method. The field names must ma
 
 The JSON-RPC API always responds with a JSON object with the following fields.
 
-> An example of a response message:
+> Response Message structure:
 
-<!-- ```json
+```json
 {
     "jsonrpc": "2.0",
-    "id": 7365,
-    "result": {
-        "status": "success",
-        "data": {
-                "0x86abfe36d170db0d6d3dc74727f41a5ec1b4c18f": {
-                    "is_at_risk": false,
-                    "open_orders": {
-                        "ETH-PERP": {},
-                        "BTC-PERP": {},
-                        "ETH-16DEC22-1100-C": {},
-                        "ETH-16DEC22-1100-P": {},
-                    },
-                    "positions": {
-                        "ETH": {
-                            "option": {},
-                            "future": {}
-                        },
-                        "BTC": {
-                            "option": {},
-                            "future": {}
-                        },
-                        "USDT": {
-                            "option": {},
-                            "future": {}
-                        }
-                    },
-                    "collateral": {
-                        "ETH": 1000000000,
-                        "BTC": 1000000000,
-                        "USDT": 1000000000
-                    },
-                    "trades": {},
-                    "deposits": {},
-                    "withdrawals": {},
-                    "settlements": {},
-                    "is_portfolio_margined": true,
-                    "max_open_orders": 10000
-                }
-            },
-        },
+    "result": [],
+    "id": 8066
 }
 ```
 
 Name | Type | Description
  ----- | ------ | ------------ 
-jsonrpc | string | The JSON-RPC version (2.0)
-id | integer | The id that was sent in the request
-result | ---- | ----
-> status | string | Tells success or failure 
-> data | object | Contains the response
-> message | string | Error message if the request fails -->
+jsonrpc | string | The JSON-RPC version (2.0).
+id | integer | The id that was sent in the request.
+result | any | The response of the message sent.
+error | error object | Only present if there was an error invoking the method.
+
+<br>
+
+In case of an error the response message will contain the error field, with as value an object with the following with the following fields:
+
+
+Name | Type | Description
+ ----- | ------ | ------------ 
+code | integer | A number that indicates the kind of error.
+message	| string | A short description that indicates the kind of error.
+
+
+
 
 
 

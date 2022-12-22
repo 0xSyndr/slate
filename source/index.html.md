@@ -19,7 +19,7 @@ includes:
   - tradingMethods
   - comboMethods
   - blockMethods
-  - walletMethods
+  # - walletMethods
   - accountMethods
 
   - subscription

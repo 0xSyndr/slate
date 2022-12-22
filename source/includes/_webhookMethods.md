@@ -40,22 +40,32 @@ channels | true | array | | channels to subscribe
 
 > An example of the response
 
-<!-- ```json
-
-"To give"
-
-``` -->
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 3041,
+  "result": [
+    
+  ]
+}
+``````json
+{
+  "jsonrpc": "2.0",
+  "id": 3041,
+  "result": [
+    
+  ]
+}
+```
 
 
 ### Response
 
-<!-- To-Do ==> give the response of subscription -->
-
-<!-- Name | Type | Description
+`Name` | `Type` | `Description`
  ----- | ------ | ------------ 
-jsonrpc | string | The JSON-RPC version (2.0)
-id | integer | The id that was sent in the request
-result | array of string | list of subscribed channels -->
+jsonrpc | string | The JSON-RPC version (2.0).
+id | integer | The id that was sent in the request.
+result | array | array of string.
 
 
 
@@ -98,18 +108,22 @@ channels | true | array | | channels to subscribe
 
 > An example of the response
 
-<!-- ```json
-"To give
-``` -->
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 3041,
+  "result": [
+    
+  ]
+}
+```
 
 
 ### Response
 
-<!-- To-Do ==> give the response of subscription -->
-
-<!-- Name | Type | Description
+`Name` | `Type` | `Description`
  ----- | ------ | ------------ 
-jsonrpc | string | The JSON-RPC version (2.0)
-id | integer | The id that was sent in the request
-result | array of string | list of subscribed channels -->
+jsonrpc | string | The JSON-RPC version (2.0).
+id | integer | The id that was sent in the request.
+result | array | array of string.
 

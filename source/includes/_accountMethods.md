@@ -44,32 +44,22 @@ asyncio.get_event_loop().run_until_complete(call_api(json.dumps(msg)))
  
 > An example of the response 
 
-<!-- ```jspn
+```jspn
 {
-  "jsonrpc": "2.0",
-  "result": {
-    "status": "success", 
-    "resp": {
-      "jsonrpc": "2.0", 
-      "result": {
-        "req_id": 6953, 
-        "result": false}
-        , "id": 1
-        }
-      }, 
+    "jsonrpc": "2.0",
+    "result": false,
     "id": 7365
-  }
-``` -->
+}
+```
 
 
 ### Response
 
-<!-- `Name` | `Type` | `Description`
+`Name` | `Type` | `Description`
  ----- | ------ | ------------ 
-`id` | `integer` | `The id that was sent in the request`
-`jsonrpc` | `string` | `The JSON-RPC version (2.0)`
-`result` | `----` | `----` -->
-
+jsonrpc | string | The JSON-RPC version (2.0).
+id | integer | The id that was sent in the request.
+result | bool | True if account at risk of liquidation
 
 <!-- ======================================================================================= -->
 
@@ -131,18 +121,80 @@ asyncio.get_event_loop().run_until_complete(call_api(json.dumps(msg)))
 
  > An example of the response
 
-<!-- ```json
- "TO FIX"
-``` -->
+```json
+ {
+    "jsonrpc": "2.0",
+    "result": {
+        "total_pl": 0.0,
+        "session_upl": 0,
+        "session_rpl": 0,
+        "projected_maintenance_margin": 0,
+        "projected_initial_margin": 0,
+        "projected_delta_total": 0,
+        "portfolio_margining_enabled": true,
+        "options_vega": 0,
+        "options_value": 0,
+        "options_theta": 0,
+        "options_session_upl": 0,
+        "options_session_rpl": 0,
+        "options_pl": 0,
+        "options_gamma": 0,
+        "options_delta": 0,
+        "margin_balance": 0,
+        "maintenance_margin": 0.0,
+        "initial_margin": 0.0,
+        "futures_session_upl": 0,
+        "futures_session_rpl": 0,
+        "futures_pl": 0.0,
+        "fee_balance": 0,
+        "equity": 1000000000.0,
+        "delta_total_map": {
+            "eth_usd": 0
+        },
+        "delta_total": 0,
+        "currency": "ETH",
+        "balance": 1000000000.0,
+        "available_withdrawal_funds": 1000000000.0,
+        "available_funds": 1000000000.0
+    },
+    "id": 7365
+}
+```
 
 
 ### Response
 
-<!-- `Name` | `Type` | `Description`
+`Name` | `Type` | `Description`
  ----- | ------ | ------------ 
-`id` | `integer` | `The id that was sent in the request`
-`jsonrpc` | `string` | `The JSON-RPC version (2.0)`
-`result` | `----` | `----` -->
+jsonrpc | string | The JSON-RPC version (2.0).
+id | integer | The id that was sent in the request.
+result | object |
+  › total_pl | number | Profit and loss 
+  › session_upl | number | Session unrealized profit and loss 
+  › session_rpl | number | Session realized profit and loss
+  › projected_maintenance_margin | number | Projected maintenance margin of the account
+  › projected_initial_margin | number | Projected initial margin of the account
+  › projected_delta_total | number | The sum of position deltas 
+  › portfolio_margining_enabled | bool | True if portfolio margin is enabled 
+  › options_vega | number | Options summary vega
+  › options_value | number | Options value
+  › options_session_upl | number | Options session unrealized profit and Loss
+  › options_session_rpl | number | Options session realized profit and Loss
+  › options_pl | number | Options profit and Loss
+  › options_gamma | number | Options summary gamma
+  › options_delta | number | Options summary delta
+  › margin_balance | number | The margin balance of the account
+  › maintenance_margin | number | The maintenance margin
+  › futures_session_upl | number | Futures session unrealized profit and Loss
+  › futures_session_rpl | number | Futures session realized profit and Loss
+  › futures_pl | number | Futures profit and Loss
+  › fee_balance | number | The account's fee balance
+  › equity | number | The account's current equity
+  › delta_total_map | object | Total delta of different positions
+  › delta_total | number | The sum of position deltas
+  › balance | number | The account's balance
+  › available_withdrawal_funds | number | Total available withdrawal funds 
+  › available_funds | number | Total available funds of the account
 
 
 <!-- ## /private/get_affiliate_program_info
@@ -196,44 +248,39 @@ asyncio.get_event_loop().run_until_complete(call_api(json.dumps(msg)))
 
 > An example of the response
 
-<!-- ```json
+```jspn
 {
     "jsonrpc": "2.0",
     "result": {
-        "status": "success",
-        "resp": {
-            "jsonrpc": "2.0",
-            "result": {
-                "req_id": 3114,
-                "result": {
-                    "ETH": {
-                        "option": {},
-                        "future": {}
-                    },
-                    "BTC": {
-                        "option": {},
-                        "future": {}
-                    },
-                    "USDT": {
-                        "option": {},
-                        "future": {}
-                    }
-                }
-            },
-            "id": 1
+        "ETH": {
+            "option": {},
+            "future": {}
+        },
+        "BTC": {
+            "option": {},
+            "future": {}
+        },
+        "USDT": {
+            "option": {},
+            "future": {}
         }
     },
     "id": 7365
 }
-``` -->
+```
+
 
 ### Response
 
-<!-- `Name` | `Type` | `Description`
+`Name` | `Type` | `Description`
  ----- | ------ | ------------ 
-`id` | `integer` | `The id that was sent in the request`
-`jsonrpc` | `string` | `The JSON-RPC version (2.0)`
-`result` | `----` | `----` -->
+jsonrpc | string | The JSON-RPC version (2.0).
+id | integer | The id that was sent in the request.
+result | object |
+  › Currency name | object
+  › ›  option | object | list of option positions for that currency
+  › ›  future | object | list of future positions for that currency 
+
 
 
 <!-- ========================================================================================== -->
